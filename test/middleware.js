@@ -10,12 +10,17 @@ var config = {
     static: {
         pattern: /^\/(css|js|font)/
     },
+    no_redir: {
+        pattern: /^\/dont/,
+        secured: true,
+        redirect_to_login: false
+    },
     secure: {
         pattern: /^\//,
         secured: true,
         redirect_to_login: true,
         login_path: 'cool_login_path'
-    }
+    },
   }
 }
 describe('expresswall', function() {
@@ -56,7 +61,7 @@ describe('expresswall', function() {
         })
         it('should not redirect for secured areas when authorized', function(done) {
             var req = {
-                    url: '/cools/secure/path',
+                    url: '/cool/secure/path',
                     session: {
                         exwall_token: {
                             authorized: true
@@ -67,11 +72,34 @@ describe('expresswall', function() {
                     redirect: function(url) {
                         assert.fail()
                         done()
-                    }
+                    },
+                    end: done
                 }
               , mw = w.middleware()
 
             mw(req, res, function() {
+                done()
+            })
+
+        })
+        it('should send a 403 header for secured paths', function(done) {
+            var req = {
+                    url: '/dont/redirect',
+                }
+              , res = {
+                    redirect: function() {
+                        throw Error('redirect called')
+                        done()
+                    },
+                    writeHead: function(code) {
+                        assert.equal(code, 403)
+                    },
+                    end: done
+                }
+              , mw = w.middleware()
+
+            mw(req, res, function() {
+                throw Error("next() called")
                 done()
             })
 
