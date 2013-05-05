@@ -1,0 +1,28 @@
+{
+  "name": "expresswall",
+  "version": "0.0.1",
+  "description": "very basic security layer for express/connect",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/themasch/expresswall.git"
+  },
+  "keywords": [
+    "express",
+    "connect",
+    "security",
+    "authentication",
+    "firewall"
+  ],
+  "author": "Mark Schmale <masch@masch.it>",
+  "license": "MIT",
+  "devDependencies": {
+    "mocha": "~1.9.0"
+  },
+  "dependencies": {
+    "debug": "~0.7.2"
+  }
+}
