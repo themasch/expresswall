@@ -1,4 +1,4 @@
-# expresswall [![Build Status](https://travis-ci.org/themasch/expresswall.png?branch=master)](https://travis-ci.org/themasch/expresswall) [![NPM version](https://badge.fury.io/js/bencode.png)](https://npmjs.org/package/bencode)
+# expresswall [![Build Status](https://travis-ci.org/themasch/expresswall.png?branch=master)](https://travis-ci.org/themasch/expresswall) [![NPM version](https://badge.fury.io/js/expresswall.png)](https://npmjs.org/package/expresswall)
 
 **expresswall** is a basic authentication middleware for [express.js](https://github.com/visionmedia/express).
 It is heavily inspired by parts of [Symfony2's Security component](https://github.com/symfony/Security).

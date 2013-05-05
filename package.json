@@ -1,6 +1,6 @@
 {
   "name": "expresswall",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "very basic security layer for express/connect",
   "main": "index.js",
   "scripts": {
